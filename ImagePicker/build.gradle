@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.imagepicker'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation('io.socket:socket.io-client:1.0.0') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
+
+    implementation 'org.tensorflow:tensorflow-android:1.2.0'
+//  implementation 'com.wonderkiln:camerakit:1.0.0-beta3.11'
+    implementation 'com.camerakit:jpegkit:0.1.0'
+    implementation 'com.camerakit:camerakit:1.0.0-beta3.11'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    //twitter
+    implementation 'com.twitter.sdk.android:twitter:3.3.0'
+    implementation 'com.twitter.sdk.android:twitter-core:3.3.0'
+    //viewpager
+    implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+    annotationProcessor 'com.android.databinding:compiler:3.5.1'
+
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx'
+    implementation 'com.getkeepsafe.relinker:relinker:1.4.4'
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
+    implementation 'com.github.IslamKhSh:CardSlider:1.0.1'
+    implementation 'io.github.sangcomz:fishbun:1.1.1'
+    implementation('com.jaredrummler:android-device-names:2.1.1')
+
+    implementation "com.github.skydoves:androidribbon:1.0.4"
+    implementation 'com.google.maps.android:android-maps-utils:2.3.0'
+}
